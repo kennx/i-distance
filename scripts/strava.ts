@@ -1,6 +1,7 @@
 import { Strava } from "strava";
 import type { SummaryActivity } from "strava";
 import { refreshTokenRequest } from "./config";
+import { delay } from "./utils";
 
 type activitiesRequest = {
   before?: number;
@@ -10,10 +11,6 @@ type activitiesRequest = {
 };
 
 const strava = new Strava(refreshTokenRequest);
-
-const delay = (ms: number) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
 
 export async function fetchActivities(params?: activitiesRequest) {
   const filter: activitiesRequest = params || { page: 1, per_page: 30 };
