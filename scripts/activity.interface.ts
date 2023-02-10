@@ -1,5 +1,5 @@
 export interface ActivityInterface {
-  id: number;
+  activity_id: number;
   name?: string;
   distance?: number;
   moving_time?: number;
@@ -8,7 +8,6 @@ export interface ActivityInterface {
   type?: string;
   start_date_local?: string;
   start_date?: string;
-  timezone?: string;
   location_country?: string;
   map_summary_polyline?: string;
 }

@@ -10,18 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id  Int @id @default(autoincrement())
-  email String @unique
-  name String?
-  posts Post[]
-}
-
-model Post {
-  id Int @id @default(autoincrement())
-  title String
-  content String?
-  published Boolean @default(false)
-  author User @relation(fields: [authorId], references: [id])
-  authorId Int
+model activities {
+  activity_id             BigInt      @id
+  name                    String?
+  distance                Float?
+  moving_time             Int?
+  average_speed           Float?
+  average_heartrate       Float?
+  type                    String?
+  start_date_local        DateTime?
+  start_date              DateTime?
+  location_country        String?
+  map_summary_polyline    String?
 }
